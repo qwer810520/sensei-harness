@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# ── Private learner data — NEVER commit ─────────────────────────────
+# Job-hunting repo: failure records and personal behaviour patterns stay
+# strictly local. This list is safety net #1; .githooks/pre-commit is #2.
+LEARNER.md
+courses/**/PROGRESS.md
+courses/**/GRADEBOOK.md
+courses/**/PARKING.md
+
+# ── Working / source material ───────────────────────────────────────
+# v0 drafts + personal + employer context; source for compilation only.
+plans/

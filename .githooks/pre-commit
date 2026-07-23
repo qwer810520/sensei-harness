@@ -1,0 +1,21 @@
+#!/bin/sh
+# Safety net #2 for the privacy boundary (.gitignore is #1).
+# Refuses to commit private learner files even if .gitignore is bypassed
+# (e.g. a force-add). This is a job-hunting repo — failure/weakness records
+# must never reach a public remote.
+#
+# Matches basenames only, anchored at end, so LEARNER.example.md is allowed.
+
+staged=$(git diff --cached --name-only)
+blocked=$(printf '%s\n' "$staged" | grep -E '(^|/)(LEARNER\.md|PROGRESS\.md|GRADEBOOK\.md|PARKING\.md)$')
+
+if [ -n "$blocked" ]; then
+  echo "✗ commit blocked — private learner files are staged:"
+  printf '%s\n' "$blocked" | sed 's/^/      /'
+  echo ""
+  echo "  These hold personal / failure data and must stay local."
+  echo "  Unstage:  git reset HEAD <file>"
+  echo "  (Deliberate? bypass with 'git commit --no-verify' — but be sure.)"
+  exit 1
+fi
+exit 0
