@@ -15,4 +15,4 @@ plans/
 
 # ── Machine-local Claude Code config / tooling (not part of the engine) ──
 .claude/settings.local.json
-.claude/skills/config-repo-pr/
+.claude/skills/repo-pr/
