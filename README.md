@@ -29,7 +29,6 @@
 CLAUDE.md                     引擎:教練協議,技能無關
 LEARNER.md                    學習者檔案            (gitignored)
 LEARNER.example.md            匿名模板              (committed)
-SPEC.md                       系統規格
 .gitignore
 .githooks/pre-commit          私有檔案進 staging 的二次攔截
 .claude/skills/oral-exam/     口試考官 skill(CC 與 Chat 共用)
@@ -50,7 +49,3 @@ courses/
 ```sh
 git config core.hooksPath .githooks
 ```
-
-## 設計文件
-
-完整規格見 [`SPEC.md`](./SPEC.md)。
