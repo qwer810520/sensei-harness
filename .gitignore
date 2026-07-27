@@ -2,9 +2,12 @@
 .DS_Store
 
 # ── Private learner data — NEVER commit ─────────────────────────────
-# Job-hunting repo: failure records and personal behaviour patterns stay
-# strictly local. This list is safety net #1; .githooks/pre-commit is #2.
+# Personal learning data (learner profile, real course content, progress
+# and grading records) stays strictly local. This list is safety net #1;
+# .githooks/pre-commit is #2.
 LEARNER.md
+courses/*
+!courses/example-course/
 courses/**/PROGRESS.md
 courses/**/GRADEBOOK.md
 courses/**/PARKING.md

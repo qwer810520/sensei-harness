@@ -33,16 +33,15 @@ LEARNER.example.md            匿名模板              (committed)
 .githooks/pre-commit          私有檔案進 staging 的二次攔截
 .claude/skills/oral-exam/     口試考官 skill(CC 與 Chat 共用)
 courses/
-  backend-2026/
-    SYLLABUS.md               課綱(public,兼作品展示)
-    PROGRESS.md               進度                (gitignored)
-    GRADEBOOK.md              成績,append-only    (gitignored)
-    PARKING.md                停車場              (gitignored)
+  example-course/
+    SYLLABUS.md               示例課綱:展示課綱 schema  (committed)
+  <你的課程>/                  真實課程整包               (gitignored)
+    SYLLABUS.md / PROGRESS.md / GRADEBOOK.md / PARKING.md
 ```
 
 ## 隱私模型
 
-本 repo 為 public。含個人行為模式與失敗紀錄的檔案(`LEARNER.md`、各課程的 `PROGRESS` / `GRADEBOOK` / `PARKING`)一律 `.gitignore`,並由 `.githooks/pre-commit` 二次攔截,永不上網。想了解匿名結構,看 `LEARNER.example.md`。
+本 repo 為 public。個人學習資料(`LEARNER.md` 與真實課程目錄整包 —— 課綱、進度、成績、停車場)一律 `.gitignore`,並由 `.githooks/pre-commit` 二次攔截,永不上網。公開的只有引擎與示例:匿名結構看 `LEARNER.example.md`,課綱 schema 看 `courses/example-course/SYLLABUS.md`。
 
 啟用 hook(clone 後執行一次):
 

@@ -1,19 +1,25 @@
 #!/bin/sh
 # Safety net #2 for the privacy boundary (.gitignore is #1).
 # Refuses to commit private learner files even if .gitignore is bypassed
-# (e.g. a force-add). This is a job-hunting repo — failure/weakness records
-# must never reach a public remote.
+# (e.g. a force-add). Personal learning records must never reach a public
+# remote.
 #
-# Matches basenames only, anchored at end, so LEARNER.example.md is allowed.
+# Blocks: LEARNER.md / PROGRESS.md / GRADEBOOK.md / PARKING.md anywhere
+# (basename match anchored at end, so LEARNER.example.md stays allowed),
+# plus anything under courses/ except the committed example course.
 
-staged=$(git diff --cached --name-only)
-blocked=$(printf '%s\n' "$staged" | grep -E '(^|/)(LEARNER\.md|PROGRESS\.md|GRADEBOOK\.md|PARKING\.md)$')
+# --diff-filter=d excludes deletions: removing a private file from the
+# index is the direction we want, only adding/modifying one is a leak.
+staged=$(git diff --cached --name-only --diff-filter=d)
+blocked=$(printf '%s\n' "$staged" \
+  | grep -E '(^|/)(LEARNER\.md|PROGRESS\.md|GRADEBOOK\.md|PARKING\.md)$|^courses/' \
+  | grep -Ev '^courses/example-course/')
 
 if [ -n "$blocked" ]; then
   echo "✗ commit blocked — private learner files are staged:"
   printf '%s\n' "$blocked" | sed 's/^/      /'
   echo ""
-  echo "  These hold personal / failure data and must stay local."
+  echo "  These hold personal learning data and must stay local."
   echo "  Unstage:  git reset HEAD <file>"
   echo "  (Deliberate? bypass with 'git commit --no-verify' — but be sure.)"
   exit 1
