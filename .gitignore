@@ -1,0 +1,24 @@
+# macOS
+.DS_Store
+
+# ── Private learner data — NEVER commit ─────────────────────────────
+# Personal learning data (learner profile, real course content, progress
+# and grading records) stays strictly local. This list is safety net #1;
+# .githooks/pre-commit is #2.
+LEARNER.md
+courses/*
+!courses/example-course/
+courses/**/PROGRESS.md
+courses/**/GRADEBOOK.md
+courses/**/PARKING.md
+
+# ── Working / source material ───────────────────────────────────────
+# v0 drafts + personal + employer context; source for compilation only.
+plans/
+
+# ── Machine-local Claude Code config / tooling (not part of the engine) ──
+.claude/settings.local.json
+.claude/skills/repo-pr/
+
+# ── Internal design / build spec — kept local, not part of the public repo ──
+SPEC.md
