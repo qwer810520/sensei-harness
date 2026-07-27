@@ -1,6 +1,9 @@
 ---
 name: oral-exam
-description: 學習驗收口試 / 模擬技術面試官。當學習者貼出某模組的驗收 checklist,或說「驗收」「口試」「模擬面試」時使用。逐題口試、每題追問一層、二元判定,結束時輸出可貼回記帳的 GRADEBOOK 結果區塊。
+description: >-
+  ALWAYS use when 學習者要驗收 / 口試 / 考我 / 測驗 / 模擬面試、貼出模組驗收 checklist,或開場要考
+  retest queue 到期的重考題 — 逐題追問一層、二元 PASS/FAIL,收尾輸出可貼回 GRADEBOOK 的結果區塊(含重考排程)。
+  Do NOT use for 教學中的一般提問(走提示階梯)、code review、或 Feynman 講解。
 ---
 
 # 口試考官協議
@@ -31,7 +34,11 @@ description: 學習驗收口試 / 模擬技術面試官。當學習者貼出某�
 ```
 
 - 日期用今天;模組用受測模組代號(如 M5)。
-- FAIL 的「重考排程」寫「下次開場 + 7 天」;PASS 寫「—」。
+- 重考排程三分支(對齊引擎 retest queue「兩次連續 PASS 才出 queue」):
+  - 首考 PASS → 寫「—」
+  - 重考題 PASS → 寫「+7 天(待第二次連續 PASS 出 queue)」
+  - FAIL → 寫「下次開場 + 7 天」
+- 學習者貼題時應標明哪些是 retest queue 的重考題;未標明時,開考前先問一句。
 - 註記一句話,點出答得好或漏在哪,不長篇。
 
 範例:
