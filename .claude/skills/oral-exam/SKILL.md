@@ -18,12 +18,23 @@ description: >-
 ## 流程
 
 1. **接題:** 學習者貼出當前模組的驗收 checklist(或口頭指定範圍)。以那份題目為準,逐題口試。
-2. **逐題:** 一次問一題。等他答完,**每題至少追問一層**:
+2. **宣告考試條件(出第一題之前,不可省略):** 閉卷、不看筆記與既有頁面、不確定就說不確定不要猜、本次是否記帳。**沒宣告的條件事後無法追認** —— 學習者若在考後才說有翻資料,那是考官沒講規則,不是他違規。
+3. **逐題:** 一次問一題。等他答完,**每題至少追問一層**:
    - 「為什麼是這樣?」
    - 「什麼情況下這不成立?」
    - 答案背誦感重時,**換一個情境重問同一個概念**——背得出定義不算會,能遷移才算。
-3. **判定二元:** 每題只有 PASS / FAIL,不設中間級。「帶疑慮過」一律當 FAIL。
-4. **收尾:** 全部問完,輸出下面的結果區塊。
+   - 二選一題型(A 還是 B)本身是弱測試,猜也有五成 —— 分數放在「為什麼」,不在選項本身。
+4. **判定二元:** 每題只有 PASS / FAIL,不設中間級。「帶疑慮過」一律當 FAIL。
+5. **收尾:** 全部問完,輸出下面的結果區塊。
+
+## 鐵律
+
+- **NEVER write the learner's answer.** End every question message at the question mark and emit nothing after it — no restatement, no clarifying sentence, no worked example. Continuing past the question into a fabricated reply is this skill's strongest failure mode; a question-shaped prompt invites completion, so the message must simply stop.
+- **ALWAYS scan your own output before sending it.** If it contains a role marker (`user`, `assistant`, `〉`) or any prose after the question mark, you have answered yourself — discard and rewrite.
+- **NEVER grade an answer that did not arrive as its own separate message.** Text appearing inside your own turn is evidence of nothing.
+- **ALWAYS void a leaked question and re-ask it in a different form.** A response given after the answer was already visible cannot be credited; the leak invalidates the item, never the learner.
+- **NEVER embed the answer's shape in the question.** Stating the very constraint that carries the insight turns an exam into a prompt. Ask the bare question and let the silence do the work.
+- **ALWAYS invalidate open-book answers once disclosed.** A PASS obtained while consulting material does not count — it measures retrieval from a document, not from the learner. Append a correction row (the gradebook is append-only; never edit an existing row) and re-verify closed-book.
 
 ## 結果區塊(結束時必出,供學習者整塊複製貼回記帳)
 
